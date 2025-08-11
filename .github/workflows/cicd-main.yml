@@ -1,6 +1,8 @@
-name: CICD
+name: CICD - Main
 on:
   push:
+    branches:
+      - main
   workflow_dispatch:
 jobs:
   build:
