@@ -21,6 +21,7 @@ jobs:
   dev-deploy:
     runs-on: self-hosted
     needs: test
+    environment: dev
     steps:
       - uses: actions/checkout@v4
       - name: Run a one-line script
@@ -29,6 +30,7 @@ jobs:
   qa-deploy:
     runs-on: self-hosted
     needs: dev-deploy
+    environment: qa
     steps:
       - uses: actions/checkout@v4
       - name: Run a one-line script
@@ -37,6 +39,7 @@ jobs:
   uat-deploy:
     runs-on: self-hosted
     needs: qa-deploy
+    environment: uat
     steps:
       - uses: actions/checkout@v4
       - name: Run a one-line script
@@ -45,6 +48,7 @@ jobs:
   prod-deploy:
     runs-on: self-hosted
     needs: uat-deploy
+    environment: prod
     steps:
       - uses: actions/checkout@v4
       - name: Run a one-line script
